@@ -71,6 +71,12 @@ export const config = {
     { name: "AWS", icon: "aws" },
     { name: "Docker", icon: "docker" },
     { name: "Framer Motion", icon: "framer" },
+    { name: "Laravel", icon: "laravel" },
+    { name: "Supabase", icon: "supabase" },
+    { name: "Pyramid", icon: "pyramid" },
+    { name: "React Native", icon: "reactnative" },
+    { name: "Flutter", icon: "flutter" },
+    { name: "Vue.js", icon: "vue" },
   ],
 };
 

@@ -17,6 +17,11 @@ import {
   SiAmazon,
   SiDocker,
   SiFramer,
+  SiLaravel,
+  SiSupabase,
+  SiPython,
+  SiFlutter,
+  SiVuedotjs,
 } from "react-icons/si";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -32,6 +37,12 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   aws: SiAmazon,
   docker: SiDocker,
   framer: SiFramer,
+  laravel: SiLaravel,
+  supabase: SiSupabase,
+  pyramid: SiPython, // Using Python icon for Pyramid (Python web framework)
+  reactnative: SiReact, // Using React icon for React Native
+  flutter: SiFlutter,
+  vue: SiVuedotjs,
 };
 
 export const SkillsShowcase = () => {
