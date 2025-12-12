@@ -5,6 +5,7 @@ import BlurImage from "@/components/blur-image";
 import { Skeleton } from "@/components/ui/skeleton";
 import { config } from "@/config";
 import Image from "next/image";
+import { motion } from "motion/react";
 
 export const SliderView = () => {
   const projects = config.projects;
@@ -19,7 +20,7 @@ export const SliderView = () => {
 
   return (
     <Carousel
-      className="absolute top-0 left-0 w-full h-full rounded-xl"
+      className="absolute top-0 left-0 w-full h-full rounded-xl overflow-hidden"
       containerClassName="h-full"
       autoplayDelay={5000}
     >
@@ -28,19 +29,50 @@ export const SliderView = () => {
 
         return (
           <div key={project.id} className="flex-[0_0_100%] h-full relative group">
-            <Image
-              src={project.image}
-              alt={project.title}
-              fill
-              sizes="75vw"
-              priority={shouldPreload}
-              className="w-full h-full object-cover rounded-xl"
-            />
-            <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent rounded-xl" />
-            <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-              <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
-              <p className="text-sm text-white/90 line-clamp-2">{project.description}</p>
-            </div>
+            <motion.div
+              initial={{ scale: 1.1 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 1.2, ease: "easeOut" }}
+              className="absolute inset-0"
+            >
+              <Image
+                src={project.image}
+                alt={project.title}
+                fill
+                sizes="75vw"
+                priority={shouldPreload}
+                className="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-[6000ms] ease-out"
+              />
+            </motion.div>
+            
+            {/* Enhanced gradient overlay with better depth */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 via-60% to-black/20 rounded-xl" />
+            <div className="absolute inset-0 bg-gradient-to-br from-black/30 via-transparent to-transparent rounded-xl" />
+            
+            {/* Content with smooth animations */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.6 }}
+              className="absolute bottom-0 left-0 right-0 p-6 lg:p-8 text-white z-10"
+            >
+              <motion.h3
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.4, duration: 0.5 }}
+                className="text-2xl lg:text-3xl font-bold mb-3 group-hover:text-white transition-colors"
+              >
+                {project.title}
+              </motion.h3>
+              <motion.p
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.5, duration: 0.5 }}
+                className="text-sm lg:text-base text-white/90 line-clamp-2 leading-relaxed"
+              >
+                {project.description}
+              </motion.p>
+            </motion.div>
           </div>
         );
       })}

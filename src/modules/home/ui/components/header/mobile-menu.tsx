@@ -7,19 +7,13 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ArrowRight } from "lucide-react";
 import { useEffect } from "react";
 import { config } from "@/config";
+import { useLanguage } from "@/contexts/language-context";
+import { AnimatedText } from "@/components/animated-text";
 
 interface MenuItem {
   label: string;
   href: string;
 }
-
-const menuItems: MenuItem[] = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Projects", href: "/projects" },
-  { label: "Skills", href: "/skills" },
-  { label: "Contact", href: "/contact" },
-];
 
 interface Props {
   isOpen: boolean;
@@ -28,6 +22,15 @@ interface Props {
 
 export default function MobileMenu({ isOpen, onClose }: Props) {
   const router = useRouter();
+  const { t } = useLanguage();
+
+  const menuItems: MenuItem[] = [
+    { label: t.nav.home, href: "/" },
+    { label: t.nav.about, href: "/about" },
+    { label: t.nav.projects, href: "/projects" },
+    { label: t.nav.skills, href: "/skills" },
+    { label: t.nav.contact, href: "/contact" },
+  ];
 
   const handleNavigation = (href: string) => {
     router.push(href);
@@ -89,14 +92,17 @@ export default function MobileMenu({ isOpen, onClose }: Props) {
 
             {/* Menu Items */}
             <div className="overflow-y-auto px-4 py-2 scrollbar-none">
-              {menuItems.map((item) => (
+              {menuItems.map((item, index) => (
                 <motion.button
-                  key={item.label}
+                  key={item.href}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.1 }}
                   onClick={() => handleNavigation(item.href)}
                   className="w-full text-left p-4 rounded-xl mb-3 flex items-center justify-between bg-muted-hover text-text-muted text-sm"
                   whileTap={{ scale: 0.98 }}
                 >
-                  {item.label}
+                  <AnimatedText delay={index * 0.05}>{item.label}</AnimatedText>
                   <ArrowRight size={18} />
                 </motion.button>
               ))}

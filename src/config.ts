@@ -1,6 +1,6 @@
 export const config = {
   developer: {
-    name: "Huzaif Ahmed",
+    name: "Mario Sitepu",
     title: "Full Stack Developer",
     bio: "Full-stack builder creating digital experiences that respect humans and scale with clarity. Accessibility is my north star.",
     avatar: "https://i.pinimg.com/736x/d4/a5/f5/d4a5f585a3470cf0c42458970be37dbc.jpg",

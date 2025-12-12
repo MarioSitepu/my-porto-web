@@ -66,55 +66,57 @@ const Carousel = ({
     <div className={`overflow-hidden relative ${className}`} ref={emblaRef}>
       <div className={`flex ${containerClassName}`}>{children}</div>
 
-      {/* Navigation Buttons */}
-      <div className="hidden lg:flex absolute inset-y-0 left-0 right-0 items-center justify-between px-8 pointer-events-none">
+      {/* Enhanced Navigation Buttons with glassmorphism */}
+      <div className="hidden lg:flex absolute inset-y-0 left-0 right-0 items-center justify-between px-6 lg:px-8 pointer-events-none z-20">
         <button
-          className="w-10 h-10 bg-black/15 backdrop-blur-sm flex items-center justify-center pointer-events-auto text-white rounded-md"
+          className="w-12 h-12 bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center pointer-events-auto text-white rounded-full hover:bg-white/20 hover:scale-110 active:scale-95 transition-all duration-300 shadow-lg hover:shadow-xl"
           aria-label="Previous"
           onClick={() => emblaApi?.scrollPrev()}
         >
           <svg
-            className="w-6 h-6"
+            className="w-5 h-5"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
+            strokeWidth={2.5}
           >
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
-              strokeWidth={2}
               d="M15 19l-7-7 7-7"
             />
           </svg>
         </button>
         <button
-          className="w-10 h-10 bg-black/15 backdrop-blur-sm flex items-center justify-center pointer-events-auto text-white rounded-md"
+          className="w-12 h-12 bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center pointer-events-auto text-white rounded-full hover:bg-white/20 hover:scale-110 active:scale-95 transition-all duration-300 shadow-lg hover:shadow-xl"
           aria-label="Next"
           onClick={() => emblaApi?.scrollNext()}
         >
           <svg
-            className="w-6 h-6"
+            className="w-5 h-5"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
+            strokeWidth={2.5}
           >
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
-              strokeWidth={2}
               d="M9 5l7 7-7 7"
             />
           </svg>
         </button>
       </div>
 
-      {/* Dots */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 bg-black/15 backdrop-blur-sm px-3 py-1 rounded-full">
+      {/* Enhanced Dots with better styling */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2.5 bg-black/20 backdrop-blur-md border border-white/10 px-4 py-2 rounded-full z-20">
         {scrollSnaps.map((_, index) => (
           <button
             key={index}
-            className={`w-2 h-2 rounded-full transition-colors ${
-              index === selectedIndex ? "bg-white" : "bg-white/50"
+            className={`rounded-full transition-all duration-300 hover:scale-125 ${
+              index === selectedIndex
+                ? "w-2.5 h-2.5 bg-white shadow-lg"
+                : "w-2 h-2 bg-white/50 hover:bg-white/70"
             }`}
             aria-label={`Slide ${index + 1}`}
             onClick={() => scrollTo(index)}

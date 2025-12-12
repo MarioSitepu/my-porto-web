@@ -1,3 +1,5 @@
+"use client";
+
 import Graphic from "../../../../../components/graphic";
 import MobileMenuButton from "./mobile-menu-button";
 import Navbar from "./navbar";

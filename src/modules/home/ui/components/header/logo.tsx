@@ -6,7 +6,7 @@ const Logo = () => {
   return (
     <Link href="/" className="flex gap-2 items-center">
       <RiCameraLensFill size={18} />
-      <WordRotate label="I'm Huzaif" label2="Developer" style="font-medium uppercase" />
+      <WordRotate label="I'm Mario" label2="Developer" style="font-medium uppercase" />
     </Link>
   );
 };
