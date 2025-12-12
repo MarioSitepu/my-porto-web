@@ -50,6 +50,7 @@ export const en = {
   common: {
     email: "Email",
     github: "GitHub",
+    instagram: "Instagram",
   },
 };
 

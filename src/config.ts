@@ -6,8 +6,9 @@ export const config = {
     avatar: "https://i.pinimg.com/736x/d4/a5/f5/d4a5f585a3470cf0c42458970be37dbc.jpg",
   },
   social: {
-    github: "huzaifahmedz",
-    email: "dev.huzaif@gmail.com",
+    github: "MarioSitepu",
+    email: "stinart123@gmail.com",
+    instagram: "mario_stp_",
     location: "-",
   },
   projects: [

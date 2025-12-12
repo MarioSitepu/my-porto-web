@@ -5,7 +5,7 @@ import Link from "next/link";
 
 // Internal dependencies - UI Components
 import ContactCard from "../../../../components/contact-card";
-import { PiArrowUpRight } from "react-icons/pi";
+import { PiArrowUpRight, PiInstagramLogo } from "react-icons/pi";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { config } from "@/config";
 import { FaGithub } from "react-icons/fa";
@@ -68,7 +68,8 @@ const ProfileCard = () => {
 
         <ContactCard
           title="Contact me"
-          href={`mailto:${config.social.email}`}
+          href={`https://instagram.com/${config.social.instagram}`}
+          icon={<PiInstagramLogo size={18} />}
           className="bg-primary text-white dark:text-black hover:bg-primary"
         />
       </div>

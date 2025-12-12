@@ -5,6 +5,7 @@ import ContactCard from "@/components/contact-card";
 import { FaGithub } from "react-icons/fa";
 import { HiMail } from "react-icons/hi";
 import { FaMapPin } from "react-icons/fa";
+import { PiInstagramLogo } from "react-icons/pi";
 import { Button } from "@/components/ui/button";
 import { motion } from "motion/react";
 import { useLanguage } from "@/contexts/language-context";
@@ -43,7 +44,7 @@ const ContactPage = () => {
 
           <ContactCard
             title="Email"
-            href="https://mail.google.com/mail/?view=cm&fs=1&to=dev.huzaif@gmail.com"
+            href={`mailto:${config.social.email}`}
             icon={<HiMail className="w-4 h-4" />}
           />
 
@@ -62,7 +63,8 @@ const ContactPage = () => {
 
           <ContactCard
             title="Contact me"
-            href="https://mail.google.com/mail/?view=cm&fs=1&to=dev.huzaif@gmail.com&su=Contact%20from%20Portfolio"
+            href={`https://instagram.com/${config.social.instagram}`}
+            icon={<PiInstagramLogo className="w-4 h-4" />}
             className="bg-primary text-white dark:text-black hover:bg-primary/90 hover:scale-105 transition-all duration-300"
           />
         </motion.div>
@@ -80,7 +82,7 @@ const ContactPage = () => {
             <AnimatedText delay={0.05}>{t.contact.letsWorkDescription}</AnimatedText>
           </p>
           <motion.a
-            href="https://mail.google.com/mail/?view=cm&fs=1&to=dev.huzaif@gmail.com&su=Contact%20from%20Portfolio"
+            href={`mailto:${config.social.email}?subject=Contact%20from%20Portfolio`}
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}

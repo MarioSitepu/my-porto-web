@@ -20,7 +20,7 @@ const iconMap: Record<string, ReactNode> = {
   GitHub: <PiGithubLogo size={18} />,
   X: <PiXLogo size={18} />,
   Xiaohongshu: <SiXiaohongshu size={18} />,
-  "Contact me": <MdEmail size={18} />,
+  "Contact me": <PiInstagramLogo size={18} />, // Changed to Instagram icon
   Email: <MdEmail size={18} />,
 };
 
@@ -39,7 +39,8 @@ const ContactCard = ({ title, href, className, icon }: Props) => {
   const getTranslatedTitle = () => {
     if (title === "Email") return t.common.email;
     if (title === "GitHub") return t.common.github;
-    if (title === "Contact me") return t.contact.contactMe;
+    if (title === "Instagram") return t.common.instagram;
+    if (title === "Contact me") return t.contact.contactMe; // Keep as "Hubungi saya" but link to Instagram
     return title;
   };
 
