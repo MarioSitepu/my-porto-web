@@ -56,8 +56,11 @@ const ContactCard = ({ title, href, className, icon }: Props) => {
       {/* Bold diagonal accent */}
       <div className="absolute top-0 right-0 w-20 h-20 bg-primary/10 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
       <div className="absolute bottom-0 left-0 w-16 h-16 bg-accent/10 rounded-tr-full" />
-      
-      <p className="text-base lg:text-lg font-black group-hover:text-primary transition-colors duration-700 relative z-10 uppercase tracking-wide">
+
+      <p className={cn(
+        "text-base lg:text-lg font-black transition-colors duration-700 relative z-10 uppercase tracking-wide",
+        title === "Contact me" ? "group-hover:text-foreground dark:group-hover:text-foreground" : "group-hover:text-primary"
+      )}>
         <AnimatedText>{getTranslatedTitle()}</AnimatedText>
       </p>
 
@@ -69,8 +72,8 @@ const ContactCard = ({ title, href, className, icon }: Props) => {
           </span>
 
           {/* Hover Icon */}
-          <span className="absolute inset-0 transform translate-y-full transition-all duration-700 ease-in-out group-hover:translate-y-0 group-hover:opacity-100 opacity-0 group-hover:rotate-0">
-            <PiArrowUpRight size={28} className="text-primary" />
+          <span className="absolute inset-0 transform translate-y-full transition-all duration-700 ease-in-out group-hover:translate-y-0 group-hover:opacity-100 opacity-0 group-hover:rotate-0 flex items-center justify-center">
+            <PiArrowUpRight size={28} className={title === "Contact me" ? "text-foreground dark:text-foreground" : "text-primary"} />
           </span>
         </div>
       </div>
