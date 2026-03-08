@@ -48,7 +48,7 @@ export function LanguageSwitcher() {
           >
             <motion.div
               animate={{
-                rotate: isOpen ? [0, -10, 10, -10, 0] : 0,
+                rotate: isOpen ? 10 : 0,
               }}
               transition={{
                 duration: 0.5,
@@ -97,8 +97,8 @@ export function LanguageSwitcher() {
                 className="text-lg inline-block"
                 whileHover={{ 
                   scale: 1.3, 
-                  rotate: [0, -10, 10, -10, 0],
-                  y: [0, -2, 0]
+                  rotate: 10,
+                  y: -2
                 }}
                 transition={{ 
                   duration: 0.4,

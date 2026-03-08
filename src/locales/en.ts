@@ -11,6 +11,7 @@ export const en = {
   home: {
     skillsTitle: "Skills & Technologies",
     footerTitle: "Pages",
+    seeMore: "See More",
   },
   // About Page
   about: {

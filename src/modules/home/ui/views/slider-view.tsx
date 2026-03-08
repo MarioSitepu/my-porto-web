@@ -45,30 +45,34 @@ export const SliderView = () => {
               />
             </motion.div>
             
-            {/* Enhanced gradient overlay with better depth */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 via-60% to-black/20 rounded-xl" />
-            <div className="absolute inset-0 bg-gradient-to-br from-black/30 via-transparent to-transparent rounded-xl" />
+            {/* Enhanced gradient overlay with vibrant accents */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-primary/20 via-50% to-transparent rounded-2xl" />
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/30 via-transparent to-accent/20 rounded-2xl opacity-60" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/10 rounded-2xl" />
             
-            {/* Content with smooth animations */}
+            {/* Animated border glow */}
+            <div className="absolute inset-0 rounded-2xl border-2 border-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            
+            {/* Content with enhanced animations */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.6 }}
-              className="absolute bottom-0 left-0 right-0 p-6 lg:p-8 text-white z-10"
+              transition={{ delay: 0.3, duration: 0.7 }}
+              className="absolute bottom-0 left-0 right-0 p-8 lg:p-10 text-white z-10"
             >
               <motion.h3
-                initial={{ opacity: 0, x: -20 }}
+                initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.4, duration: 0.5 }}
-                className="text-2xl lg:text-3xl font-bold mb-3 group-hover:text-white transition-colors"
+                transition={{ delay: 0.4, duration: 0.6 }}
+                className="text-3xl lg:text-4xl font-bold mb-4 group-hover:text-primary/90 transition-colors duration-500 drop-shadow-2xl"
               >
                 {project.title}
               </motion.h3>
               <motion.p
-                initial={{ opacity: 0, x: -20 }}
+                initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.5, duration: 0.5 }}
-                className="text-sm lg:text-base text-white/90 line-clamp-2 leading-relaxed"
+                transition={{ delay: 0.5, duration: 0.6 }}
+                className="text-base lg:text-lg text-white/95 line-clamp-2 leading-relaxed font-medium drop-shadow-lg"
               >
                 {project.description}
               </motion.p>

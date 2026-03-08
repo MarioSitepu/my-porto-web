@@ -11,6 +11,7 @@ export const id = {
   home: {
     skillsTitle: "Keahlian & Teknologi",
     footerTitle: "Halaman",
+    seeMore: "Lihat Lainnya",
   },
   // About Page
   about: {

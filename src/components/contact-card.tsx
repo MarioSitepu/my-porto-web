@@ -49,24 +49,28 @@ const ContactCard = ({ title, href, className, icon }: Props) => {
       href={href || " "}
       target="_blank"
       className={cn(
-        "w-full h-full p-3 lg:p-5 bg-card border border-border/50 hover:border-border hover:shadow-md rounded-xl flex justify-between items-center cursor-pointer group transition-all duration-300 ease-[cubic-bezier(0.22, 1, 0.36, 1)] hover:bg-muted/50",
+        "w-full h-full p-6 lg:p-8 bg-card border-4 border-border/40 hover:border-primary/60 hover:shadow-[0_0_0_6px_rgba(255,107,107,0.1)] rounded-3xl flex justify-between items-center cursor-pointer group transition-all duration-700 ease-[cubic-bezier(0.22, 1, 0.36, 1)] floating-card relative overflow-hidden",
         className
       )}
     >
-      <p className="text-sm font-medium group-hover:text-primary transition-colors duration-300">
+      {/* Bold diagonal accent */}
+      <div className="absolute top-0 right-0 w-20 h-20 bg-primary/10 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+      <div className="absolute bottom-0 left-0 w-16 h-16 bg-accent/10 rounded-tr-full" />
+      
+      <p className="text-base lg:text-lg font-black group-hover:text-primary transition-colors duration-700 relative z-10 uppercase tracking-wide">
         <AnimatedText>{getTranslatedTitle()}</AnimatedText>
       </p>
 
-      <div className="relative inline-block overflow-hidden size-[18px]">
+      <div className="relative inline-block overflow-hidden size-8 lg:size-10 relative z-10">
         <div className="relative inline-block group font-light text-sm h-full w-full">
-          {/* Default Icon (visible initially, moves down on hover) */}
-          <span className="block transform transition-transform duration-300 ease-in-out group-hover:-translate-y-full group-hover:opacity-0">
+          {/* Default Icon */}
+          <span className="block transform transition-all duration-700 ease-in-out group-hover:-translate-y-full group-hover:opacity-0 group-hover:rotate-45">
             {defaultIcon}
           </span>
 
-          {/* Hover Icon (hidden initially, moves up on hover) */}
-          <span className="absolute inset-0 transform translate-y-full transition-transform duration-300 ease-in-out group-hover:translate-y-0 group-hover:opacity-100 opacity-0">
-            <PiArrowUpRight size={18} className="text-primary" />
+          {/* Hover Icon */}
+          <span className="absolute inset-0 transform translate-y-full transition-all duration-700 ease-in-out group-hover:translate-y-0 group-hover:opacity-100 opacity-0 group-hover:rotate-0">
+            <PiArrowUpRight size={28} className="text-primary" />
           </span>
         </div>
       </div>
