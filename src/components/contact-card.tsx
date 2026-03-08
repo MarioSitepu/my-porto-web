@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { MdEmail } from "react-icons/md";
+import { FaLinkedinIn } from "react-icons/fa";
 import {
   PiArrowUpRight,
   PiInstagramLogo,
@@ -20,8 +21,9 @@ const iconMap: Record<string, ReactNode> = {
   GitHub: <PiGithubLogo size={18} />,
   X: <PiXLogo size={18} />,
   Xiaohongshu: <SiXiaohongshu size={18} />,
-  "Contact me": <PiInstagramLogo size={18} />, // Changed to Instagram icon
+  "Contact me": <MdEmail size={18} />, // Changed to Email icon
   Email: <MdEmail size={18} />,
+  LinkedIn: <FaLinkedinIn size={18} />,
 };
 
 interface Props {
@@ -53,7 +55,10 @@ const ContactCard = ({ title, href, className, icon }: Props) => {
         className
       )}
     >
-      <p className="text-sm font-medium group-hover:text-primary transition-colors duration-300">
+      <p className={cn(
+        "text-sm font-medium transition-colors duration-300",
+        title === "Contact me" ? "group-hover:text-white dark:group-hover:text-black" : "group-hover:text-primary"
+      )}>
         <AnimatedText>{getTranslatedTitle()}</AnimatedText>
       </p>
 
@@ -66,7 +71,7 @@ const ContactCard = ({ title, href, className, icon }: Props) => {
 
           {/* Hover Icon (hidden initially, moves up on hover) */}
           <span className="absolute inset-0 transform translate-y-full transition-transform duration-300 ease-in-out group-hover:translate-y-0 group-hover:opacity-100 opacity-0">
-            <PiArrowUpRight size={18} className="text-primary" />
+            <PiArrowUpRight size={18} className={title === "Contact me" ? "text-white dark:text-black" : "text-primary"} />
           </span>
         </div>
       </div>

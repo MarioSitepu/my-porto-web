@@ -2,7 +2,7 @@
 
 import { config } from "@/config";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { FaGithub } from "react-icons/fa";
+import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { HiMail } from "react-icons/hi";
 import { FaMapPin } from "react-icons/fa";
 import ContactCard from "@/components/contact-card";
@@ -78,6 +78,12 @@ const AboutPage = () => {
             title="Email"
             href={`mailto:${config.social.email}`}
             icon={<HiMail className="w-4 h-4" />}
+          />
+
+          <ContactCard
+            title="LinkedIn"
+            href="https://www.linkedin.com/in/mariofransiskussitepu"
+            icon={<FaLinkedinIn className="w-4 h-4" />}
           />
 
           <motion.div

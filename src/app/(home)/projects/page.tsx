@@ -35,10 +35,10 @@ const ProjectsPage = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
               whileHover={{ y: -8 }}
-              className="group relative overflow-hidden rounded-xl bg-card border border-border/50 hover:border-border hover:shadow-xl transition-all duration-300"
+              className="group relative overflow-hidden rounded-xl bg-card border border-border/50 hover:border-border hover:shadow-xl transition-all duration-300 flex flex-col h-full"
             >
               {/* Image Container with glassmorphism overlay */}
-              <div className="relative aspect-video overflow-hidden">
+              <div className="relative aspect-video overflow-hidden shrink-0">
                 <Image
                   src={project.image}
                   alt={project.title}
@@ -47,7 +47,7 @@ const ProjectsPage = () => {
                 />
                 {/* Enhanced gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                
+
                 {/* Action buttons on hover */}
                 <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
                   {project.github !== "#" && (
@@ -77,7 +77,7 @@ const ProjectsPage = () => {
                 </div>
               </div>
 
-              <div className="p-6">
+              <div className="p-6 flex flex-col flex-1">
                 <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors duration-300">
                   {project.title}
                 </h3>
@@ -86,7 +86,7 @@ const ProjectsPage = () => {
                 </p>
 
                 {/* Enhanced tech tags */}
-                <div className="flex flex-wrap gap-2 mb-4">
+                <div className="flex flex-wrap gap-2 mb-4 mt-auto">
                   {project.technologies.slice(0, 3).map((tech, idx) => (
                     <motion.span
                       key={idx}
@@ -106,7 +106,7 @@ const ProjectsPage = () => {
                 </div>
 
                 {/* Links with better styling */}
-                <div className="flex gap-4 pt-2 border-t border-border/50">
+                <div className="flex gap-4 pt-4 mt-2 border-t border-border/50">
                   {project.github !== "#" && (
                     <Link
                       href={project.github}
@@ -142,4 +142,3 @@ const ProjectsPage = () => {
 };
 
 export default ProjectsPage;
-

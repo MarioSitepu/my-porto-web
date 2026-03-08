@@ -1,12 +1,12 @@
 import Link from "next/link";
 import WordRotate from "../word-rotate";
-import { RiCameraLensFill } from "react-icons/ri";
+import { TbCircleDashedLetterM } from "react-icons/tb";
 
 const Logo = () => {
   return (
     <Link href="/" className="flex gap-2 items-center">
-      <RiCameraLensFill size={18} />
-      <WordRotate label="I'm Mario" label2="Developer" style="font-medium uppercase" />
+      <TbCircleDashedLetterM size={22} className="text-primary" />
+      <WordRotate label="I'm Mario" label2="Web Dev" style="font-medium uppercase" />
     </Link>
   );
 };

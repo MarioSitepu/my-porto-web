@@ -8,7 +8,7 @@ import ContactCard from "../../../../components/contact-card";
 import { PiArrowUpRight, PiInstagramLogo } from "react-icons/pi";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { config } from "@/config";
-import { FaGithub } from "react-icons/fa";
+import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { HiMail } from "react-icons/hi";
 import { useLanguage } from "@/contexts/language-context";
 
@@ -22,7 +22,7 @@ const ProfileCard = () => {
         >
           {/* Subtle gradient overlay on hover */}
           <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          
+
           <div className="flex gap-4 items-center relative z-10">
             {/* AVATAR with hover effect */}
             <div className="relative">
@@ -61,15 +61,15 @@ const ProfileCard = () => {
         />
 
         <ContactCard
-          title="Email"
-          href={`mailto:${config.social.email}`}
-          icon={<HiMail className="w-4 h-4" />}
+          title="LinkedIn"
+          href="https://www.linkedin.com/in/mariofransiskussitepu"
+          icon={<FaLinkedinIn className="w-4 h-4" />}
         />
 
         <ContactCard
           title="Contact me"
-          href={`https://instagram.com/${config.social.instagram}`}
-          icon={<PiInstagramLogo size={18} />}
+          href={`mailto:${config.social.email}?subject=Contact%20from%20Portfolio`}
+          icon={<HiMail size={18} />}
           className="bg-primary text-white dark:text-black hover:bg-primary"
         />
       </div>

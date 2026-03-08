@@ -2,7 +2,7 @@
 
 import { config } from "@/config";
 import ContactCard from "@/components/contact-card";
-import { FaGithub } from "react-icons/fa";
+import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { HiMail } from "react-icons/hi";
 import { FaMapPin } from "react-icons/fa";
 import { PiInstagramLogo } from "react-icons/pi";
@@ -43,9 +43,9 @@ const ContactPage = () => {
           />
 
           <ContactCard
-            title="Email"
-            href={`mailto:${config.social.email}`}
-            icon={<HiMail className="w-4 h-4" />}
+            title="LinkedIn"
+            href="https://www.linkedin.com/in/mariofransiskussitepu"
+            icon={<FaLinkedinIn className="w-4 h-4" />}
           />
 
           <motion.div
@@ -63,8 +63,8 @@ const ContactPage = () => {
 
           <ContactCard
             title="Contact me"
-            href={`https://instagram.com/${config.social.instagram}`}
-            icon={<PiInstagramLogo className="w-4 h-4" />}
+            href={`mailto:${config.social.email}?subject=Contact%20from%20Portfolio`}
+            icon={<HiMail className="w-5 h-5" />}
             className="bg-primary text-white dark:text-black hover:bg-primary/90 hover:scale-105 transition-all duration-300"
           />
         </motion.div>

@@ -17,8 +17,8 @@ export const id = {
     title: "Tentang",
     aboutMe: "Tentang Saya",
     location: "Lokasi",
-    description1: "Saya adalah seorang full-stack developer yang bersemangat dalam membangun pengalaman digital yang membuat perbedaan. Pendekatan saya menggabungkan kode yang bersih, desain yang matang, dan pemikiran yang berpusat pada pengguna.",
-    description2: "Ketika saya tidak sedang coding, saya menikmati menjelajahi teknologi baru, berkontribusi pada proyek open-source, dan berbagi pengetahuan dengan komunitas developer.",
+    description1: "Saya adalah mahasiswa Teknik Informatika yang memiliki minat dalam pengembangan perangkat lunak dan teknologi digital. Saya menikmati proses membangun aplikasi, mempelajari logika pemrograman, serta mengeksplorasi berbagai teknologi untuk menciptakan solusi yang sederhana dan bermanfaat.",
+    description2: "Saat ini saya banyak belajar tentang pengembangan web, pemrograman, serta mulai mengeksplorasi teknologi kecerdasan buatan. Bagi saya, teknologi bukan hanya tentang kode, tetapi juga tentang bagaimana sebuah solusi dapat memberikan dampak dan mempermudah kehidupan.",
   },
   // Projects Page
   projects: {
