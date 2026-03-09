@@ -22,7 +22,7 @@ interface Props {
 
 export default function MobileMenu({ isOpen, onClose }: Props) {
   const router = useRouter();
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const menuItems: MenuItem[] = [
     { label: t.nav.home, href: "/" },
@@ -85,7 +85,7 @@ export default function MobileMenu({ isOpen, onClose }: Props) {
                 {/* NAME  */}
                 <div className="flex flex-col">
                   <h1 className="text-lg">{config.developer.name}</h1>
-                  <p className="text-sm text-text-muted">{config.developer.title}</p>
+                  <p className="text-sm text-text-muted">{language === "en" ? config.developer.titleEn : config.developer.titleId}</p>
                 </div>
               </div>
             </div>
