@@ -21,6 +21,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
   // Load language from localStorage on mount
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
     const savedLanguage = localStorage.getItem(LANGUAGE_STORAGE_KEY) as Language;
     if (savedLanguage && (savedLanguage === "en" || savedLanguage === "id")) {

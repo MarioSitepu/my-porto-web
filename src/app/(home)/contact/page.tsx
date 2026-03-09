@@ -5,7 +5,6 @@ import ContactCard from "@/components/contact-card";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { HiMail } from "react-icons/hi";
 import { FaMapPin } from "react-icons/fa";
-import { PiInstagramLogo } from "react-icons/pi";
 import { Button } from "@/components/ui/button";
 import { motion } from "motion/react";
 import { useLanguage } from "@/contexts/language-context";

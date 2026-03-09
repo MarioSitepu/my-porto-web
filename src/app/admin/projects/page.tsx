@@ -20,6 +20,7 @@ export default async function ProjectsAdminPage() {
             </div>
 
             <div className="grid grid-cols-1 gap-4">
+                {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
                 {projects.map((project: any) => (
                     <div
                         key={project.id}

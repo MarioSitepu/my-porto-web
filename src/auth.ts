@@ -1,7 +1,7 @@
 import NextAuth from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials"
 import { prisma } from "@/lib/prisma"
-import bcrypt from "bcryptjs"
+import { compare } from "bcrypt-ts"
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
     providers: [
@@ -20,7 +20,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 
                 if (!user) return null
 
-                const passwordsMatch = await bcrypt.compare(
+                const passwordsMatch = await compare(
                     credentials.password as string,
                     user.password
                 )
@@ -47,6 +47,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         },
         async session({ session, token }) {
             if (session.user) {
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 (session.user as any).id = token.id as string
             }
             return session

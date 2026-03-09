@@ -30,7 +30,6 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { cn, duplicateContent } from "@/lib/utils";
 import { keyToImage } from "@/lib/keyToImage";
-import { toast } from "sonner";
 
 export const ImageExtension = Image.extend({
   addAttributes() {
@@ -77,9 +76,9 @@ function TiptapImage(props: NodeViewProps) {
   const rawSrc = node.attrs.src as string | null | undefined;
   const imageSrc =
     typeof rawSrc === "string" &&
-    !rawSrc.startsWith("http://") &&
-    !rawSrc.startsWith("https://") &&
-    !rawSrc.startsWith("data:")
+      !rawSrc.startsWith("http://") &&
+      !rawSrc.startsWith("https://") &&
+      !rawSrc.startsWith("data:")
       ? keyToImage(rawSrc)
       : rawSrc ?? "";
 

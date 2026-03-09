@@ -1,7 +1,6 @@
 "use client";
 
 import Carousel from "@/components/photo-carousel";
-import BlurImage from "@/components/blur-image";
 import { Skeleton } from "@/components/ui/skeleton";
 import Image from "next/image";
 import { motion } from "motion/react";

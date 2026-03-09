@@ -11,7 +11,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/language-context";
 import { languages } from "@/locales";
-import { motion, AnimatePresence } from "motion/react";
+import { motion } from "motion/react";
 
 export function LanguageSwitcher() {
   const { language, setLanguage } = useLanguage();
@@ -19,6 +19,7 @@ export function LanguageSwitcher() {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
   }, []);
 
@@ -29,8 +30,6 @@ export function LanguageSwitcher() {
       </Button>
     );
   }
-
-  const currentLanguage = languages.find((lang) => lang.code === language);
 
   return (
     <DropdownMenu onOpenChange={setIsOpen}>
@@ -57,7 +56,7 @@ export function LanguageSwitcher() {
             >
               <Languages className="h-4 w-4 group-hover:text-primary transition-colors duration-300" />
             </motion.div>
-            
+
             {/* Ripple effect on hover */}
             <motion.div
               className="absolute inset-0 rounded-md bg-primary/10"
@@ -65,13 +64,13 @@ export function LanguageSwitcher() {
               whileHover={{ scale: 1.5, opacity: 1 }}
               transition={{ duration: 0.3 }}
             />
-            
+
             <span className="sr-only">Switch language</span>
           </Button>
         </motion.div>
       </DropdownMenuTrigger>
-      <DropdownMenuContent 
-        align="end" 
+      <DropdownMenuContent
+        align="end"
         className="min-w-[150px] overflow-hidden"
       >
         {languages.map((lang, index) => (
@@ -95,12 +94,12 @@ export function LanguageSwitcher() {
               {/* Flag with bounce animation */}
               <motion.span
                 className="text-lg inline-block"
-                whileHover={{ 
-                  scale: 1.3, 
+                whileHover={{
+                  scale: 1.3,
                   rotate: [0, -10, 10, -10, 0],
                   y: [0, -2, 0]
                 }}
-                transition={{ 
+                transition={{
                   duration: 0.4,
                   type: "spring",
                   stiffness: 400,
@@ -108,15 +107,15 @@ export function LanguageSwitcher() {
               >
                 {lang.flag}
               </motion.span>
-              
-              <motion.span 
+
+              <motion.span
                 className="flex-1 group-hover/item:text-primary transition-colors duration-200"
                 whileHover={{ x: 2 }}
                 transition={{ duration: 0.2 }}
               >
                 {lang.name}
               </motion.span>
-              
+
               {/* Active indicator with smooth animation */}
               {language === lang.code && (
                 <motion.div
@@ -131,7 +130,7 @@ export function LanguageSwitcher() {
                   className="w-2 h-2 rounded-full bg-primary"
                 />
               )}
-              
+
               {/* Hover background effect */}
               <motion.div
                 className="absolute inset-0 bg-primary/5 rounded-md -z-10"

@@ -5,7 +5,7 @@ import Link from "next/link";
 
 // Internal dependencies - UI Components
 import ContactCard from "../../../../components/contact-card";
-import { PiArrowUpRight, PiInstagramLogo } from "react-icons/pi";
+import { PiArrowUpRight } from "react-icons/pi";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { config } from "@/config";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";

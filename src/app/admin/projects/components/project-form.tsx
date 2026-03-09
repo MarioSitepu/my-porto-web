@@ -38,8 +38,8 @@ export function ProjectForm({ initialData, action }: ProjectFormProps) {
                 const img = new Image();
                 img.onload = () => {
                     const canvas = document.createElement("canvas");
-                    let width = img.width;
-                    let height = img.height;
+                    const width = img.width;
+                    const height = img.height;
 
                     // Target 16:9 Aspect Ratio
                     const targetRatio = 16 / 9;

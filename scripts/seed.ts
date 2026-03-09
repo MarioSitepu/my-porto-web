@@ -1,6 +1,6 @@
 import "dotenv/config";
 import { PrismaClient } from "@prisma/client";
-import bcrypt from "bcryptjs";
+import { hash } from "bcrypt-ts";
 import { config } from "../src/config";
 import { experiences } from "../src/data/experience";
 
@@ -15,7 +15,7 @@ async function main() {
     await prisma.experience.deleteMany({});
 
     // 1. Create Admin User
-    const adminPassword = await bcrypt.hash("admin123", 10);
+    const adminPassword = await hash("admin123", 10);
     const admin = await prisma.user.create({
         data: {
             username: "admin",
@@ -30,6 +30,8 @@ async function main() {
             data: {
                 title: project.title,
                 description: project.description,
+                titleEn: project.title,       // Set default for titleEn
+                descriptionEn: project.description, // Set default for descriptionEn
                 image: project.image,
                 technologies: project.technologies,
                 github: project.github,
@@ -44,10 +46,13 @@ async function main() {
     for (const [index, exp] of experiences.entries()) {
         await prisma.experience.create({
             data: {
-                title: exp.title,
-                role: exp.role,
+                title: exp.titleId,
+                titleEn: exp.titleEn,
+                role: exp.roleId,
+                roleEn: exp.roleEn,
                 date: exp.date,
-                description: exp.description,
+                description: exp.descriptionId,
+                descriptionEn: exp.descriptionEn,
                 technologies: exp.technologies,
                 order: index,
             },

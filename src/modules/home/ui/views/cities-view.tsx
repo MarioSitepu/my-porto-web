@@ -7,6 +7,7 @@ import VectorTopLeftAnimation from "../components/vector-top-left-animation";
 
 export const CitiesView = () => {
   // Static placeholder data
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const data: Array<{ id: string; city: string; coverPhoto: any }> = [];
 
   return (
