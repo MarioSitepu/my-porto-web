@@ -13,6 +13,8 @@ import { HiMail } from "react-icons/hi";
 import { useLanguage } from "@/contexts/language-context";
 
 const ProfileCard = () => {
+  const { language, t } = useLanguage();
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3 gap-4 items-stretch">
       <div className="col-span-1 md:col-span-2 lg:col-span-1 xl:col-span-2">
@@ -35,13 +37,13 @@ const ProfileCard = () => {
             {/* NAME  */}
             <div className="flex flex-col gap-[2px]">
               <h1 className="text-lg font-semibold group-hover:text-primary transition-colors duration-300">{config.developer.name}</h1>
-              <p className="text-sm text-muted-foreground">{config.developer.title}</p>
+              <p className="text-sm text-muted-foreground">{language === "en" ? config.developer.titleEn : config.developer.titleId}</p>
             </div>
           </div>
 
           <div className="lg:mt-4 xl:mt-0 relative z-10">
             <p className="text-muted-foreground text-[15px] leading-relaxed">
-              {config.developer.bio}
+              {language === "en" ? config.developer.bioEn : config.developer.bioId}
             </p>
           </div>
 
@@ -67,7 +69,7 @@ const ProfileCard = () => {
         />
 
         <ContactCard
-          title="Contact me"
+          title={t.contact.contactMe}
           href={`mailto:${config.social.email}?subject=Contact%20from%20Portfolio`}
           icon={<HiMail size={18} />}
           className="bg-primary text-white dark:text-black hover:bg-primary"

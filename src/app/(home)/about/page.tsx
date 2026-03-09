@@ -11,7 +11,7 @@ import { useLanguage } from "@/contexts/language-context";
 import { AnimatedText } from "@/components/animated-text";
 
 const AboutPage = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   return (
     <div className="container mx-auto px-6 py-24">
@@ -49,7 +49,7 @@ const AboutPage = () => {
               transition={{ delay: 0.4, duration: 0.5 }}
               className="text-xl text-muted-foreground mb-4"
             >
-              {config.developer.title}
+              {language === "en" ? config.developer.titleEn : config.developer.titleId}
             </motion.p>
             <motion.p
               initial={{ opacity: 0, x: -20 }}
@@ -57,7 +57,7 @@ const AboutPage = () => {
               transition={{ delay: 0.5, duration: 0.5 }}
               className="text-muted-foreground leading-relaxed"
             >
-              {config.developer.bio}
+              {language === "en" ? config.developer.bioEn : config.developer.bioId}
             </motion.p>
           </div>
         </motion.div>
@@ -96,7 +96,7 @@ const AboutPage = () => {
                 <AnimatedText>{t.about.location}</AnimatedText>
               </h3>
             </div>
-            <p className="text-muted-foreground">{config.social.location}</p>
+            <p className="text-muted-foreground">{language === "en" ? config.social.locationEn : config.social.locationId}</p>
           </motion.div>
         </motion.div>
 

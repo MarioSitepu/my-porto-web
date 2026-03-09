@@ -2,6 +2,7 @@
 
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { Language, translations, defaultLanguage } from "@/locales";
+import { useRouter } from "next/navigation";
 
 interface LanguageContextType {
   language: Language;
@@ -16,6 +17,7 @@ const LANGUAGE_STORAGE_KEY = "portfolio-language";
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [language, setLanguageState] = useState<Language>(defaultLanguage);
   const [mounted, setMounted] = useState(false);
+  const router = useRouter();
 
   // Load language from localStorage on mount
   useEffect(() => {
@@ -30,10 +32,16 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     setLanguageState(lang);
     if (typeof window !== "undefined") {
       localStorage.setItem(LANGUAGE_STORAGE_KEY, lang);
+      // Set cookie for server components
+      document.cookie = `${LANGUAGE_STORAGE_KEY}=${lang}; path=/; max-age=31536000; SameSite=Lax`;
+
       // Update HTML lang attribute
       if (typeof document !== "undefined") {
         document.documentElement.lang = lang;
       }
+
+      // Refresh Next.js router to regenerate server components with new cookie
+      router.refresh();
     }
   };
 
@@ -65,7 +73,7 @@ export function useLanguage() {
     console.warn("useLanguage called outside LanguageProvider, using default language");
     return {
       language: defaultLanguage,
-      setLanguage: () => {},
+      setLanguage: () => { },
       t: translations[defaultLanguage],
     };
   }

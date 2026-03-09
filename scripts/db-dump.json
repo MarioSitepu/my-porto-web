@@ -1,0 +1,235 @@
+[
+  {
+    "id": "cmmj5u23c0002lymf3sj1orlg",
+    "title": "TEGASU — Web IoT Monitoring pH & Ketinggian Air",
+    "titleEn": "TEGASU — Web IoT Monitoring pH & Water Level",
+    "description": "Sistem monitoring IoT berbasis web untuk memantau kondisi lahan pertanian dan kolam ikan secara real-time. Dibangun dengan Next.js, terhubung ke perangkat ESP32 melalui HTTP polling.",
+    "descriptionEn": "A web-based IoT monitoring system for real-time tracking of agricultural land and fish pond conditions. Built using Next.js, connecting to ESP32 devices via HTTP polling.",
+    "image": "https://res.cloudinary.com/dbkzi1oao/image/upload/v1773081919/Screenshot_2026-03-06_021405_sqrx0z.png",
+    "technologies": [
+      "ESP32",
+      "PHP",
+      "Next.js",
+      "TypeScript",
+      "PostgreSQL",
+      "Azure VM"
+    ],
+    "github": "https://github.com/KKN-MARGOLESTARI-T31/Web-IoT-Monitoring-pH-dan-Ketinggian-Air",
+    "demo": "https://web-iot-ph-ketinggian-air.vercel.app/",
+    "order": 1,
+    "createdAt": "2026-03-09T12:31:19.320Z",
+    "updatedAt": "2026-03-09T19:30:32.350Z"
+  },
+  {
+    "id": "cmmjjvam9000017ra8uq802om",
+    "title": "Website KM ITERA",
+    "titleEn": "KM ITERA Website",
+    "description": "Saya berkontribusi sebagai UI/UX Designer dengan  merancang wireframe di Figma, mendesain antarmuka responsif, serta mengoptimalkan alur pengguna.",
+    "descriptionEn": "Contributed as a UI/UX Designer by designing wireframes in Figma, rendering responsive interfaces, and optimizing user flows.",
+    "image": "https://res.cloudinary.com/dbkzi1oao/image/upload/v1773083033/Screenshot_2026-03-01_101732_yqx81k.png",
+    "technologies": [
+      "UI/UX",
+      "Figma"
+    ],
+    "github": "#",
+    "demo": "https://km-itera.com/",
+    "order": 0,
+    "createdAt": "2026-03-09T19:04:11.611Z",
+    "updatedAt": "2026-03-09T19:30:32.383Z"
+  },
+  {
+    "id": "cmmj5u2550003lymfbypxyae0",
+    "title": "Annel Beauty Analytics Website",
+    "titleEn": "Annel Beauty Analytics Website",
+    "description": "Sistem manajemen penjualan dan analitik untuk bisnis kecantikan multi-toko dengan smart product matching.",
+    "descriptionEn": "A sales management and analytics system for a multi-store beauty business with smart product matching.",
+    "image": "https://res.cloudinary.com/dbkzi1oao/image/upload/v1773082051/Screenshot_2026-03-10_014628_kpwr55.png",
+    "technologies": [
+      "Next.js",
+      "Prisma",
+      "PostgreSQL",
+      "Recharts",
+      "Supabase",
+      "Redis"
+    ],
+    "github": "https://github.com/MarioSitepu/analytics-annel-shop",
+    "demo": "https://annel-beauty-analytics.vercel.app/",
+    "order": 2,
+    "createdAt": "2026-03-09T12:31:19.385Z",
+    "updatedAt": "2026-03-09T19:26:34.113Z"
+  },
+  {
+    "id": "cmmj5u28t0005lymf399i4tlv",
+    "title": "Website HMIF ITERA",
+    "titleEn": "ITERA Informatics Student Association Website (HMIF ITERA)",
+    "description": "Riset dan desain prototipe antarmuka website himpunan yang responsif, mengoptimalkan user flow.",
+    "descriptionEn": "Conducted user research and designed responsive, consistent wireframes and prototypes, optimizing user flows.",
+    "image": "https://res.cloudinary.com/dbkzi1oao/image/upload/v1773082431/Screenshot_2026-03-01_102530_zblrhx.png",
+    "technologies": [
+      "Figma",
+      "UI/UX Research"
+    ],
+    "github": "#",
+    "demo": "#",
+    "order": 4,
+    "createdAt": "2026-03-09T12:31:19.517Z",
+    "updatedAt": "2026-03-09T19:26:34.155Z"
+  },
+  {
+    "id": "cmmj5u2at0006lymfr8b6ek8z",
+    "title": "Madu Margolestari – UMKM ECommerce",
+    "titleEn": "Madu Margolestari – MSME Honey E-Commerce Platform",
+    "description": "Platform e-commerce modern untuk digitalisasi UMKM madu dengan fitur manajemen produk dan backend REST API.",
+    "descriptionEn": "A modern e-commerce platform for the digitalization of an MSME honey business, featuring a REST API and RBAC system.",
+    "image": "https://res.cloudinary.com/dbkzi1oao/image/upload/v1773082509/Screenshot_2026-03-01_104208_t16ejb.png",
+    "technologies": [
+      "React",
+      "Node.js",
+      "MongoDB",
+      "Tailwind CSS",
+      "Supabase",
+      "Google OAuth"
+    ],
+    "github": "https://github.com/MarioSitepu/madu-margolestari-next",
+    "demo": "https://madumargolestari.vercel.app/",
+    "order": 5,
+    "createdAt": "2026-03-09T12:31:19.589Z",
+    "updatedAt": "2026-03-09T19:26:34.187Z"
+  },
+  {
+    "id": "cmmj5u20g0001lymfxu1io1kr",
+    "title": "EduCorner: SahabatMimpi (KKN Project – Desa Margo Lestari)",
+    "titleEn": "EduCorner: SahabatMimpi (Community Service Project – Margo Lestari Village)",
+    "description": "Platform edukasi interaktif untuk membantu siswa SD-SMA mengenali potensi diri dan cita-cita melalui kuis MBTI berbasis AI.",
+    "descriptionEn": "An interactive education platform to help elementary to high school students discover their potential and future careers through an AI-powered MBTI quiz.",
+    "image": "https://res.cloudinary.com/dbkzi1oao/image/upload/v1773081638/Screenshot_2026-03-10_013539_skmqxi.png",
+    "technologies": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "PostgreSQL",
+      "Firebase Auth",
+      "Tailwind CSS"
+    ],
+    "github": "https://github.com/MarioSitepu/edu-corner",
+    "demo": "https://edu-corner-seven.vercel.app/",
+    "order": 0,
+    "createdAt": "2026-03-09T12:31:19.216Z",
+    "updatedAt": "2026-03-09T19:26:34.047Z"
+  },
+  {
+    "id": "cmmj5u2cr0007lymfez0n64nr",
+    "title": "YangPentingMakan – Recipe Sharing",
+    "titleEn": "YangPentingMakan – Recipe Sharing Web Platform",
+    "description": "Platform berbagi resep makanan praktis bagi mahasiswa dengan fitur upload resep, rating, dan review.",
+    "descriptionEn": "A practical recipe sharing platform aimed at university students featuring recipe uploads, ratings, and reviews.",
+    "image": "https://res.cloudinary.com/dbkzi1oao/image/upload/v1773082565/Screenshot_2026-03-06_010615_dtnezg.png",
+    "technologies": [
+      "React",
+      "TypeScript",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Tailwind CSS"
+    ],
+    "github": "https://github.com/MarioSitepu/LKMO-KULINER",
+    "demo": "https://www.yangpentingmakan.my.id/",
+    "order": 6,
+    "createdAt": "2026-03-09T12:31:19.659Z",
+    "updatedAt": "2026-03-09T19:26:34.224Z"
+  },
+  {
+    "id": "cmmj5u2jo000alymff0ef30iz",
+    "title": "Website KMK ITERA",
+    "titleEn": "Website KMK ITERA",
+    "description": "Membangun frontend modern dan mengintegrasikan API Fetching , dan CMS berbasis Firebase untuk website komunitas.",
+    "descriptionEn": "Membangun frontend modern dan mengintegrasikan API Fetching , dan CMS berbasis Firebase untuk website komunitas.",
+    "image": "https://res.cloudinary.com/dbkzi1oao/image/upload/v1773082868/Screenshot_2026-03-01_095917_augsbw.png",
+    "technologies": [
+      "Next.js",
+      "Tailwind CSS",
+      "Firebase"
+    ],
+    "github": "#",
+    "demo": "https://www.kmkitera.com/",
+    "order": 9,
+    "createdAt": "2026-03-09T12:31:19.908Z",
+    "updatedAt": "2026-03-09T19:26:34.256Z"
+  },
+  {
+    "id": "cmmj5u2hw0009lymffnatd7uy",
+    "title": "Aplikasi Reservasi Online Lapangan Futsal",
+    "titleEn": "Futsal Court Online Reservation App",
+    "description": "Aplikasi Flutter untuk melakukan reservasi lapangan futsal secara online dan mudah.",
+    "descriptionEn": "A Flutter-based mobile application to easily book futsal courts online.",
+    "image": "/projects/project-4.webp",
+    "technologies": [
+      "Dart",
+      "Flutter",
+      "Mobile App"
+    ],
+    "github": "https://github.com/MarioSitepu/BookingAppFlutter",
+    "demo": "#",
+    "order": 8,
+    "createdAt": "2026-03-09T12:31:19.845Z",
+    "updatedAt": "2026-03-09T19:30:32.288Z"
+  },
+  {
+    "id": "cmmjk9f9c0000iyrwmgeb0nqr",
+    "title": "Sawit Harvester",
+    "titleEn": "Sawit Harvester",
+    "description": "Game stealth-aksi perspektif orang pertama tentang seorang remaja asal Bengkulu yang memanen kelapa sawit dari kebun kelapa sawit fiktif. player harus merencanakan rute, memanen buah sawit, bertahan hidup dari hewan hewan liar, dan menghindari penghuni kebun.",
+    "descriptionEn": "A first-person stealth-action game about a teenager from Bengkulu enjoying palm oil from a fictional palm oil plantation. Players must plan their route, display the palm fruit, survive rogue animals, and avoid the plantation's inhabitants.\r\n",
+    "image": "https://res.cloudinary.com/dbkzi1oao/image/upload/v1773083697/project-thumbnail_lt6tin.jpg",
+    "technologies": [
+      "Godot",
+      "C++",
+      "Blender"
+    ],
+    "github": "https://github.com/SinagaPande/Oil-Palm-Godot",
+    "demo": "",
+    "order": 0,
+    "createdAt": "2026-03-09T19:15:10.815Z",
+    "updatedAt": "2026-03-09T19:15:10.815Z"
+  },
+  {
+    "id": "cmmj5u2fu0008lymf297cask8",
+    "title": "Website Desa Batang Hari",
+    "titleEn": "Batang Hari Village Website",
+    "description": "Sistem web berbasis PHP fungsional untuk mengelola data desa, artikel informatif, terhubung melalui cPanel.",
+    "descriptionEn": "Designed and implemented CRUD operations for village data management, and managed hosting configurations via cPanel.",
+    "image": "https://res.cloudinary.com/dbkzi1oao/image/upload/v1773082659/Screenshot_2026-03-01_103557_uz1ko4.png",
+    "technologies": [
+      "PHP",
+      "cPanel",
+      "HTML",
+      "CSS"
+    ],
+    "github": "#",
+    "demo": "https://batanghariogan.com/",
+    "order": 7,
+    "createdAt": "2026-03-09T12:31:19.770Z",
+    "updatedAt": "2026-03-09T19:26:33.927Z"
+  },
+  {
+    "id": "cmmj5u27u0004lymfzsrp93bd",
+    "title": "Survey & Analytics System",
+    "titleEn": "Survey & Analytics System",
+    "description": "Dynamic Form Application berbasis MERN stack dengan dashboard admin dan visualisasi data analitik.",
+    "descriptionEn": "Dynamic Form Application berbasis MERN stack dengan dashboard admin dan visualisasi data analitik.",
+    "image": "https://res.cloudinary.com/dbkzi1oao/image/upload/v1773082303/Screenshot_2026-03-10_015130_pt5gva.png",
+    "technologies": [
+      "MongoDB",
+      "Express",
+      "React",
+      "Node.js",
+      "Recharts",
+      "Vite"
+    ],
+    "github": "https://github.com/MarioSitepu/form-survei-wisuda",
+    "demo": "https://form-survei-wisuda.vercel.app/",
+    "order": 3,
+    "createdAt": "2026-03-09T12:31:19.482Z",
+    "updatedAt": "2026-03-09T19:26:34.329Z"
+  }
+]

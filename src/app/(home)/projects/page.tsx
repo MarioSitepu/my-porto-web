@@ -1,15 +1,16 @@
-"use client";
-
-import { config } from "@/config";
+import { prisma } from "@/lib/prisma";
 import Image from "next/image";
 import Link from "next/link";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
-import { motion } from "motion/react";
-import { useLanguage } from "@/contexts/language-context";
+import * as motion from "motion/react-client";
+import { getTranslations } from "@/locales/utils";
 import { AnimatedText } from "@/components/animated-text";
 
-const ProjectsPage = () => {
-  const { t } = useLanguage();
+export default async function ProjectsPage() {
+  const { t, language } = await getTranslations();
+  const projects = await prisma.project.findMany({
+    orderBy: { order: "asc" },
+  });
 
   return (
     <div className="container mx-auto px-6 py-24">
@@ -28,7 +29,7 @@ const ProjectsPage = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {config.projects.map((project, index) => (
+          {projects.map((project: any, index: number) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 30 }}
@@ -37,7 +38,6 @@ const ProjectsPage = () => {
               whileHover={{ y: -8 }}
               className="group relative overflow-hidden rounded-xl bg-card border border-border/50 hover:border-border hover:shadow-xl transition-all duration-300 flex flex-col h-full"
             >
-              {/* Image Container with glassmorphism overlay */}
               <div className="relative aspect-video overflow-hidden shrink-0">
                 <Image
                   src={project.image}
@@ -45,10 +45,8 @@ const ProjectsPage = () => {
                   fill
                   className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                 />
-                {/* Enhanced gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-                {/* Action buttons on hover */}
                 <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
                   {project.github !== "#" && (
                     <motion.a
@@ -79,15 +77,14 @@ const ProjectsPage = () => {
 
               <div className="p-6 flex flex-col flex-1">
                 <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors duration-300">
-                  {project.title}
+                  {language === "en" && project.titleEn ? project.titleEn : project.title}
                 </h3>
                 <p className="text-sm text-muted-foreground mb-4 line-clamp-3 leading-relaxed">
-                  {project.description}
+                  {language === "en" && project.descriptionEn ? project.descriptionEn : project.description}
                 </p>
 
-                {/* Enhanced tech tags */}
                 <div className="flex flex-wrap gap-2 mb-4 mt-auto">
-                  {project.technologies.slice(0, 3).map((tech, idx) => (
+                  {project.technologies.slice(0, 3).map((tech: string, idx: number) => (
                     <motion.span
                       key={idx}
                       initial={{ opacity: 0, scale: 0.8 }}
@@ -105,7 +102,6 @@ const ProjectsPage = () => {
                   )}
                 </div>
 
-                {/* Links with better styling */}
                 <div className="flex gap-4 pt-4 mt-2 border-t border-border/50">
                   {project.github !== "#" && (
                     <Link
@@ -139,6 +135,4 @@ const ProjectsPage = () => {
       </div>
     </div>
   );
-};
-
-export default ProjectsPage;
+}

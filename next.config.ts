@@ -8,18 +8,23 @@ const s3Protocol = s3Url ? s3Url.protocol.replace(":", "") : "https";
 const nextConfig: NextConfig = {
   output: "standalone",
   /* config options here */
-  reactCompiler: true,
+  experimental: {
+    reactCompiler: true,
+  },
   images: {
-    qualities: [65, 75],
     remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+      },
       ...(s3Hostname
         ? [
-            {
-              protocol: s3Protocol as "http" | "https",
-              hostname: s3Hostname,
-              port: s3Url?.port || "",
-            },
-          ]
+          {
+            protocol: s3Protocol as "http" | "https",
+            hostname: s3Hostname,
+            port: s3Url?.port || "",
+          },
+        ]
         : []),
       {
         protocol: "https",

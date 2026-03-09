@@ -1,15 +1,18 @@
 export const config = {
   developer: {
     name: "Mario Fransiskus Sitepu",
-    title: "Full Stack Developer | AI Engineer",
-    bio: "Berfokus pada pengembangan web modern dan eksplorasi teknologi AI untuk membangun produk digital yang cerdas, scalable, dan bermanfaat.",
+    titleId: "Full Stack Developer | AI Engineer",
+    titleEn: "Full Stack Developer | AI Engineer",
+    bioId: "Berfokus pada pengembangan web modern dan eksplorasi teknologi AI untuk membangun produk digital yang cerdas, scalable, dan bermanfaat.",
+    bioEn: "Focusing on modern web development and exploring AI technologies to build smart, scalable, and impactful digital products.",
     avatar: "/imgpp.jpg",
   },
   social: {
     github: "MarioSitepu",
     email: "stinart123@gmail.com",
     instagram: "mario_stp_",
-    location: "Lampung Selatan, Lampung",
+    locationId: "Lampung Selatan, Lampung",
+    locationEn: "South Lampung, Lampung",
   },
   projects: [
     {

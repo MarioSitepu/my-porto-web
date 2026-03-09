@@ -12,7 +12,7 @@ import { useLanguage } from "@/contexts/language-context";
 import { AnimatedText } from "@/components/animated-text";
 
 const ContactPage = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   return (
     <div className="container mx-auto px-6 py-24">
@@ -58,11 +58,11 @@ const ContactPage = () => {
                 <AnimatedText>{t.about.location}</AnimatedText>
               </h3>
             </div>
-            <p className="text-muted-foreground">{config.social.location}</p>
+            <p className="text-muted-foreground">{language === "en" ? config.social.locationEn : config.social.locationId}</p>
           </motion.div>
 
           <ContactCard
-            title="Contact me"
+            title={t.contact.contactMe}
             href={`mailto:${config.social.email}?subject=Contact%20from%20Portfolio`}
             icon={<HiMail className="w-5 h-5" />}
             className="bg-primary text-white dark:text-black hover:bg-primary/90 hover:scale-105 transition-all duration-300"
