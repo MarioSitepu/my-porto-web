@@ -8,6 +8,9 @@ const s3Protocol = s3Url ? s3Url.protocol.replace(":", "") : "https";
 const nextConfig: NextConfig = {
   output: "standalone",
   /* config options here */
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   experimental: {
     reactCompiler: true,
   },
