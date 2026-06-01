@@ -11,12 +11,20 @@ export default async function ProjectsAdminPage() {
         <div className="space-y-6">
             <div className="flex justify-between items-center">
                 <h1 className="text-3xl font-bold">Manage Projects</h1>
-                <Link
-                    href="/admin/projects/new"
-                    className="px-4 py-2 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
-                >
-                    Add New Project
-                </Link>
+                <div className="flex gap-3">
+                    <Link
+                        href="/admin/projects/sync"
+                        className="px-4 py-2 bg-secondary text-secondary-foreground rounded-lg font-medium hover:bg-secondary/90 transition-colors flex items-center gap-2"
+                    >
+                        Sync from GitHub
+                    </Link>
+                    <Link
+                        href="/admin/projects/new"
+                        className="px-4 py-2 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
+                    >
+                        Add New Project
+                    </Link>
+                </div>
             </div>
 
             <div className="grid grid-cols-1 gap-4">
@@ -30,7 +38,7 @@ export default async function ProjectsAdminPage() {
                             <div className="w-16 h-12 bg-muted rounded-md overflow-hidden relative">
                                 {/* eslint-disable-next-line @next/next/no-img-element */}
                                 <img
-                                    src={project.image}
+                                    src={project.image || "/projects/project-1.webp"}
                                     alt={project.title}
                                     className="object-cover w-full h-full"
                                 />

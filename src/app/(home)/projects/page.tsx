@@ -41,7 +41,7 @@ export default async function ProjectsPage() {
             >
               <div className="relative aspect-video overflow-hidden shrink-0">
                 <Image
-                  src={project.image}
+                  src={project.image || "/projects/project-1.webp"}
                   alt={project.title}
                   fill
                   className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"

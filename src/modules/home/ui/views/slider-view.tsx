@@ -44,7 +44,7 @@ export const SliderView = ({ projects }: { projects: Project[] }) => {
               className="absolute inset-0"
             >
               <Image
-                src={project.image}
+                src={project.image || "/projects/project-1.webp"}
                 alt={project.title}
                 fill
                 sizes="75vw"

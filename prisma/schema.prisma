@@ -9,15 +9,18 @@ datasource db {
 
 model Project {
   id            String   @id @default(cuid())
+  githubId      Int?     @unique
   title         String
   titleEn       String   @default("")
   description   String
   descriptionEn String   @default("")
-  image         String
+  content       String?
+  image         String   @default("")
   technologies  String[]
-  github        String
-  demo          String
+  github        String   @default("")
+  demo          String   @default("")
   order         Int      @default(0)
+  isPublished   Boolean  @default(true)
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
 }
