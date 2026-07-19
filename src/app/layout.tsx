@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     default: "Mario - Full Stack Developer",
   },
   description: "Full-stack developer creating digital experiences that respect humans and scale with clarity.",
-  keywords: ["Full Stack Developer", "Frontend Developer", "Backend Developer", "React", "Next.js", "Portfolio", "Mario", "Web Developer"],
+  keywords: ["Full Stack Developer", "Frontend Developer", "Backend Developer", "React", "Next.js", "Portfolio", "Mario", "Mario Sitepu", "Mario Fransiskus Sitepu", "Web Developer"],
   authors: [{ name: "Mario" }],
   creator: "Mario",
   openGraph: {
