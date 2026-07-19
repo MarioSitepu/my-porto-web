@@ -6,6 +6,13 @@ import * as motion from "motion/react-client";
 import { getTranslations } from "@/locales/utils";
 import { AnimatedText } from "@/components/animated-text";
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Projects",
+  description: "Explore my portfolio of web development projects, showcasing my skills in Next.js, React, and Full-Stack development.",
+};
+
 export default async function ProjectsPage() {
   const { t, language } = await getTranslations();
   const projects = await prisma.project.findMany({

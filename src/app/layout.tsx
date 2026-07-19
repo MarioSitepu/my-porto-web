@@ -15,12 +15,54 @@ const readexPro = Readex_Pro({
   subsets: ["latin"],
 });
 
+const appUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(appUrl),
   title: {
     template: "%s - Developer Portfolio",
     default: "Mario - Full Stack Developer",
   },
   description: "Full-stack developer creating digital experiences that respect humans and scale with clarity.",
+  keywords: ["Full Stack Developer", "Frontend Developer", "Backend Developer", "React", "Next.js", "Portfolio", "Mario", "Web Developer"],
+  authors: [{ name: "Mario" }],
+  creator: "Mario",
+  openGraph: {
+    title: "Mario - Full Stack Developer",
+    description: "Full-stack developer creating digital experiences that respect humans and scale with clarity.",
+    url: appUrl,
+    siteName: "Mario Portfolio",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Mario - Full Stack Developer",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Mario - Full Stack Developer",
+    description: "Full-stack developer creating digital experiences that respect humans and scale with clarity.",
+    images: ["/og-image.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: appUrl,
+  },
 };
 
 export default function RootLayout({
