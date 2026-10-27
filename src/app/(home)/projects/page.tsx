@@ -13,6 +13,18 @@ export const metadata: Metadata = {
   description: "Explore my portfolio of web development projects, showcasing my skills in Next.js, React, and Full-Stack development.",
 };
 
+const isValidLink = (url?: string | null): boolean => {
+  if (!url) return false;
+  const trimmed = url.trim();
+  return (
+    trimmed !== "" &&
+    trimmed !== "#" &&
+    trimmed !== "-" &&
+    trimmed.toLowerCase() !== "null" &&
+    trimmed.toLowerCase() !== "undefined"
+  );
+};
+
 export default async function ProjectsPage() {
   const { t, language } = await getTranslations();
   const projects = await prisma.project.findMany({
@@ -37,108 +49,122 @@ export default async function ProjectsPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-          {projects.map((project: any, index: number) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
-              whileHover={{ y: -8 }}
-              className="group relative overflow-hidden rounded-xl bg-card border border-border/50 hover:border-border hover:shadow-xl transition-all duration-300 flex flex-col h-full"
-            >
-              <div className="relative aspect-video overflow-hidden shrink-0">
-                <Image
-                  src={project.image || "/projects/project-1.webp"}
-                  alt={project.title}
-                  fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          {projects.map((project: any, index: number) => {
+            const hasGithub = isValidLink(project.github);
+            const hasDemo = isValidLink(project.demo);
+            const hasAnyLink = hasGithub || hasDemo;
 
-                <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
-                  {project.github !== "#" && (
-                    <motion.a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="w-12 h-12 bg-white/10 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300"
-                    >
-                      <FaGithub className="w-5 h-5" />
-                    </motion.a>
-                  )}
-                  {project.demo !== "#" && (
-                    <motion.a
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="w-12 h-12 bg-white/10 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300"
-                    >
-                      <FaExternalLinkAlt className="w-5 h-5" />
-                    </motion.a>
-                  )}
-                </div>
-              </div>
+            return (
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1, duration: 0.5 }}
+                whileHover={{ y: -8 }}
+                className="group relative overflow-hidden rounded-xl bg-card border border-border/50 hover:border-border hover:shadow-xl transition-all duration-300 flex flex-col h-full"
+              >
+                <div className="relative aspect-video overflow-hidden shrink-0">
+                  <Image
+                    src={project.image || "/projects/project-1.webp"}
+                    alt={project.title}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-              <div className="p-6 flex flex-col flex-1">
-                <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors duration-300">
-                  {language === "en" && project.titleEn ? project.titleEn : project.title}
-                </h3>
-                <p className="text-sm text-muted-foreground mb-4 line-clamp-3 leading-relaxed">
-                  {language === "en" && project.descriptionEn ? project.descriptionEn : project.description}
-                </p>
-
-                <div className="flex flex-wrap gap-2 mb-4 mt-auto">
-                  {project.technologies.slice(0, 3).map((tech: string, idx: number) => (
-                    <motion.span
-                      key={idx}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: index * 0.1 + idx * 0.05 }}
-                      className="text-xs px-2.5 py-1 bg-muted border border-border/50 rounded-md text-foreground/70 group-hover:border-border group-hover:text-foreground transition-all duration-300"
-                    >
-                      {tech}
-                    </motion.span>
-                  ))}
-                  {project.technologies.length > 3 && (
-                    <span className="text-xs px-2.5 py-1 bg-muted border border-border/50 rounded-md text-foreground/70">
-                      +{project.technologies.length - 3}
-                    </span>
+                  {hasAnyLink && (
+                    <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                      {hasGithub && (
+                        <motion.a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.95 }}
+                          className="w-12 h-12 bg-white/10 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300"
+                          title="GitHub Repository"
+                        >
+                          <FaGithub className="w-5 h-5" />
+                        </motion.a>
+                      )}
+                      {hasDemo && (
+                        <motion.a
+                          href={project.demo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.95 }}
+                          className="w-12 h-12 bg-white/10 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300"
+                          title="Live Demo"
+                        >
+                          <FaExternalLinkAlt className="w-5 h-5" />
+                        </motion.a>
+                      )}
+                    </div>
                   )}
                 </div>
 
-                <div className="flex gap-4 pt-4 mt-2 border-t border-border/50">
-                  {project.github !== "#" && (
-                    <Link
-                      href={project.github}
-                      target="_blank"
-                      className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-300 group/link"
-                    >
-                      <FaGithub className="w-4 h-4 group-hover/link:scale-110 transition-transform duration-300" />
-                      <AnimatedText>
-                        <span>{t.projects.code}</span>
-                      </AnimatedText>
-                    </Link>
-                  )}
-                  {project.demo !== "#" && (
-                    <Link
-                      href={project.demo}
-                      target="_blank"
-                      className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-300 group/link"
-                    >
-                      <FaExternalLinkAlt className="w-4 h-4 group-hover/link:scale-110 transition-transform duration-300" />
-                      <AnimatedText>
-                        <span>{t.projects.demo}</span>
-                      </AnimatedText>
-                    </Link>
+                <div className="p-6 flex flex-col flex-1">
+                  <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors duration-300">
+                    {language === "en" && project.titleEn ? project.titleEn : project.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground mb-4 line-clamp-3 leading-relaxed">
+                    {language === "en" && project.descriptionEn ? project.descriptionEn : project.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-2 mb-4 mt-auto">
+                    {project.technologies.slice(0, 3).map((tech: string, idx: number) => (
+                      <motion.span
+                        key={idx}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: index * 0.1 + idx * 0.05 }}
+                        className="text-xs px-2.5 py-1 bg-muted border border-border/50 rounded-md text-foreground/70 group-hover:border-border group-hover:text-foreground transition-all duration-300"
+                      >
+                        {tech}
+                      </motion.span>
+                    ))}
+                    {project.technologies.length > 3 && (
+                      <span className="text-xs px-2.5 py-1 bg-muted border border-border/50 rounded-md text-foreground/70">
+                        +{project.technologies.length - 3}
+                      </span>
+                    )}
+                  </div>
+
+                  {hasAnyLink && (
+                    <div className="flex gap-4 pt-4 mt-2 border-t border-border/50">
+                      {hasGithub && (
+                        <Link
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-300 group/link"
+                        >
+                          <FaGithub className="w-4 h-4 group-hover/link:scale-110 transition-transform duration-300" />
+                          <AnimatedText>
+                            <span>{t.projects.code}</span>
+                          </AnimatedText>
+                        </Link>
+                      )}
+                      {hasDemo && (
+                        <Link
+                          href={project.demo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-300 group/link"
+                        >
+                          <FaExternalLinkAlt className="w-4 h-4 group-hover/link:scale-110 transition-transform duration-300" />
+                          <AnimatedText>
+                            <span>{t.projects.demo}</span>
+                          </AnimatedText>
+                        </Link>
+                      )}
+                    </div>
                   )}
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </div>

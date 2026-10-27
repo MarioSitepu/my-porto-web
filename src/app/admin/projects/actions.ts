@@ -4,6 +4,21 @@ import { prisma } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
+function cleanUrl(val: unknown): string {
+    if (typeof val !== "string") return "";
+    const trimmed = val.trim();
+    if (
+        trimmed === "" ||
+        trimmed === "#" ||
+        trimmed === "-" ||
+        trimmed.toLowerCase() === "null" ||
+        trimmed.toLowerCase() === "undefined"
+    ) {
+        return "";
+    }
+    return trimmed;
+}
+
 export async function createProject(formData: FormData) {
     const title = formData.get("title") as string;
     const titleEn = formData.get("titleEn") as string || "";
@@ -12,8 +27,8 @@ export async function createProject(formData: FormData) {
     const technologies = (formData.get("technologies") as string)
         .split(",")
         .map((t) => t.trim());
-    const github = formData.get("github") as string;
-    const demo = formData.get("demo") as string;
+    const github = cleanUrl(formData.get("github"));
+    const demo = cleanUrl(formData.get("demo"));
     const image = formData.get("image") as string;
 
     await prisma.project.create({
@@ -29,6 +44,7 @@ export async function createProject(formData: FormData) {
         },
     });
 
+    revalidatePath("/");
     revalidatePath("/admin/projects");
     revalidatePath("/projects");
     redirect("/admin/projects");
@@ -42,8 +58,8 @@ export async function updateProject(id: string, formData: FormData) {
     const technologies = (formData.get("technologies") as string)
         .split(",")
         .map((t) => t.trim());
-    const github = formData.get("github") as string;
-    const demo = formData.get("demo") as string;
+    const github = cleanUrl(formData.get("github"));
+    const demo = cleanUrl(formData.get("demo"));
     const image = formData.get("image") as string;
 
     await prisma.project.update({
@@ -60,6 +76,7 @@ export async function updateProject(id: string, formData: FormData) {
         },
     });
 
+    revalidatePath("/");
     revalidatePath("/admin/projects");
     revalidatePath("/projects");
     redirect("/admin/projects");

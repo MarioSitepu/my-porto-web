@@ -236,22 +236,34 @@ export function ProjectForm({ initialData, action }: ProjectFormProps) {
 
                 <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-2">
-                        <label className="text-sm font-medium">GitHub Link</label>
+                        <div className="flex items-center justify-between">
+                            <label className="text-sm font-medium">GitHub Link</label>
+                            <span className="text-xs text-muted-foreground">Opsional</span>
+                        </div>
                         <input
                             name="github"
-                            defaultValue={initialData?.github}
-                            className="w-full px-4 py-2 bg-background border border-border rounded-lg focus:ring-2 focus:ring-primary/50 outline-none"
-                            placeholder="#"
+                            defaultValue={initialData?.github === "#" ? "" : initialData?.github}
+                            className="w-full px-4 py-2 bg-background border border-border rounded-lg focus:ring-2 focus:ring-primary/50 outline-none text-sm"
+                            placeholder="https://github.com/username/repo"
                         />
+                        <p className="text-[11px] text-muted-foreground">
+                            Kosongkan jika tidak ada repositori publik (ikon otomatis disembunyikan).
+                        </p>
                     </div>
                     <div className="space-y-2">
-                        <label className="text-sm font-medium">Demo Link</label>
+                        <div className="flex items-center justify-between">
+                            <label className="text-sm font-medium">Demo / Web Link</label>
+                            <span className="text-xs text-muted-foreground">Opsional</span>
+                        </div>
                         <input
                             name="demo"
-                            defaultValue={initialData?.demo}
-                            className="w-full px-4 py-2 bg-background border border-border rounded-lg focus:ring-2 focus:ring-primary/50 outline-none"
-                            placeholder="#"
+                            defaultValue={initialData?.demo === "#" ? "" : initialData?.demo}
+                            className="w-full px-4 py-2 bg-background border border-border rounded-lg focus:ring-2 focus:ring-primary/50 outline-none text-sm"
+                            placeholder="https://nama-web.vercel.app"
                         />
+                        <p className="text-[11px] text-muted-foreground">
+                            Kosongkan jika tidak ada live demo (ikon otomatis disembunyikan).
+                        </p>
                     </div>
                 </div>
             </div>

@@ -1,10 +1,9 @@
-import { PrismaClient } from '@prisma/client';
-
-const prisma = new PrismaClient();
+import { prisma } from '../src/lib/prisma';
 
 async function main() {
-    const projects = await prisma.project.findMany();
-    console.log(JSON.stringify(projects, null, 2));
+  const p = await prisma.project.findMany({ orderBy: { order: 'asc' } });
+  console.log('Total in DB:', p.length);
+  p.forEach((x, i) => console.log(`${i}. [order: ${x.order}] ${x.title} (image: ${x.image})`));
 }
 
-main().catch(console.error).finally(() => prisma.$disconnect());
+main().finally(() => prisma.$disconnect());
